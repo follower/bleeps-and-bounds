@@ -32,4 +32,6 @@ func _ready() -> void:
         current_beat_indicator.material = current_beat_indicator.material.duplicate()
         current_material = current_beat_indicator.material
 
-    self.beat_indicators[0].material.set("emission_energy", 0.25)
+    self._tweener.interpolate_property(self.beat_indicators[0].material, "emission_energy", 0.0, 0.25, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.5)
+
+    self._tweener.start()
