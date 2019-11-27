@@ -19,6 +19,12 @@ onready var beat_indicators = [
 func _ready() -> void:
 
     var current_beat_indicator: CSGBox # Note: `CSGShape` doesn't have `material` due to `CSGMesh`?
+    var current_material: SpatialMaterial # TODO: Use GLES3 so we can enable `glow` in environment?
 
-#    for current_beat_indicator in self.beat_indicators:
-#    current_beat_indicator.material.
+    for current_beat_indicator in self.beat_indicators:
+        # Make it so we can control "flash" of each indicator separately.
+        # TODO: Figure out how to do this properly...
+        current_beat_indicator.material = current_beat_indicator.material.duplicate()
+        current_material = current_beat_indicator.material
+
+    self.beat_indicators[0].material.set("emission_energy", 0.25)
