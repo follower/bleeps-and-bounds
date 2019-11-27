@@ -34,4 +34,15 @@ func _ready() -> void:
 
     self._tweener.interpolate_property(self.beat_indicators[0].material, "emission_energy", 0.0, 0.25, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.5)
 
+
+    self._tweener.start()
+
+    yield(get_tree().create_timer(1.0), "timeout")
+
+    self._tweener.remove_all()
+
+    self._tweener.interpolate_property(self.beat_indicators[0].material, "emission_energy", 0.25, 0.0, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
+
+    self._tweener.interpolate_property(self.beat_indicators[1].material, "emission_energy", 0.0, 0.25, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
+
     self._tweener.start()
