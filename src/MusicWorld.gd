@@ -9,7 +9,11 @@ onready var BAR01_BEAT2_INDICATOR = $"Bar01Beat2Indicator"
 onready var BAR01_BEAT3_INDICATOR = $"Bar01Beat3Indicator"
 onready var BAR01_BEAT4_INDICATOR = $"Bar01Beat4Indicator"
 
-var beat_indicators = [BAR01_BEAT1_INDICATOR, BAR01_BEAT2_INDICATOR, BAR01_BEAT3_INDICATOR, BAR01_BEAT4_INDICATOR]
+onready var beat_indicators = [
+                BAR01_BEAT1_INDICATOR,
+                BAR01_BEAT2_INDICATOR,
+                BAR01_BEAT3_INDICATOR,
+                BAR01_BEAT4_INDICATOR]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
