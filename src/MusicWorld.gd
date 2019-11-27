@@ -39,10 +39,21 @@ func _ready() -> void:
 
     yield(get_tree().create_timer(1.0), "timeout")
 
-    self._tweener.remove_all()
+    var NUM_BEATS = self.beat_indicators.size()
 
-    self._tweener.interpolate_property(self.beat_indicators[0].material, "emission_energy", 0.25, 0.0, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
+    var active_beat: int = 0
 
-    self._tweener.interpolate_property(self.beat_indicators[1].material, "emission_energy", 0.0, 0.25, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
+    for counter in range(15):
+        var next_beat: int = (active_beat + 1) % NUM_BEATS
 
-    self._tweener.start()
+        self._tweener.remove_all()
+
+        self._tweener.interpolate_property(self.beat_indicators[active_beat].material, "emission_energy", 0.25, 0.0, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
+
+        self._tweener.interpolate_property(self.beat_indicators[next_beat].material, "emission_energy", 0.0, 0.25, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
+
+        self._tweener.start()
+
+        yield(get_tree().create_timer(0.5), "timeout")
+
+        active_beat = next_beat
