@@ -15,8 +15,13 @@ onready var beat_indicators = [
                 BAR01_BEAT3_INDICATOR,
                 BAR01_BEAT4_INDICATOR]
 
+var _tweener: Tween = Tween.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
+    add_child(self._tweener, true)
+
 
     var current_beat_indicator: CSGBox # Note: `CSGShape` doesn't have `material` due to `CSGMesh`?
     var current_material: SpatialMaterial # TODO: Use GLES3 so we can enable `glow` in environment?
