@@ -53,6 +53,8 @@ func _ready() -> void:
 
         self._tweener.start()
 
+        $"../.."._on_Button_pressed()
+
         yield(get_tree().create_timer(0.5), "timeout")
 
         active_beat = next_beat
