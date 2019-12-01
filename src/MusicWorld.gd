@@ -161,12 +161,16 @@ func add_note_from_current_platform_position() -> void:
     NOTE_PLAYER.notes.append(self.note_info[self.current_note_platform_position].value)
 
 
+func handle_jump() -> void:
+    self.add_note_from_current_platform_position()
+
+
 func _on_PlatformTimer_timeout() -> void:
     self.update_note_platform_position()
 
 
 func _unhandled_key_input(event: InputEventKey) -> void:
     if event.is_action_pressed("ui_accept"):
-        self.add_note_from_current_platform_position()
+        self.handle_jump()
     elif event.is_action_pressed("ui_cancel"):
         self.stop_note_platform()
