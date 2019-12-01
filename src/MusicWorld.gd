@@ -173,6 +173,7 @@ func update_note_platform_position() -> void:
 
 
 func stop_note_platform() -> void:
+    # TODO: Handle last platform position/visibility properly.
     self.NEW_NOTE_PLATFORM_TIMER.stop()
 
 
@@ -181,6 +182,7 @@ func add_note_from_current_platform_position() -> void:
 
 
 func update_player_position() -> void:
+    # TODO: Handle initial player position.
     # TODO: Figure out if there's a nicer/better/more atomic way of doing this?
     var active_session_platform: CSGShape = self.get_active_session_platform()
     self.PLAYER_AVATAR.translation.y = active_session_platform.translation.y
@@ -197,6 +199,8 @@ func handle_jump() -> void:
     # TODO: Make this atomic?
     self.update_note_platform_position()
     self.get_active_session_platform().visible = true
+
+    # TODO: Handle camera move.
 
 
 func _on_PlatformTimer_timeout() -> void:
