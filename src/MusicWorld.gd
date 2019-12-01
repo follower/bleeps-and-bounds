@@ -29,6 +29,8 @@ var note_info = [
     {"value": 64, "name": "E", "offset": 2},
     ]
 
+onready var PLAYER_AVATAR:Spatial = $"../Player"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
@@ -178,8 +180,17 @@ func add_note_from_current_platform_position() -> void:
     NOTE_PLAYER.notes.append(self.note_info[self.current_note_platform_position].value)
 
 
+func update_player_position() -> void:
+    # TODO: Figure out if there's a nicer/better/more atomic way of doing this?
+    var active_session_platform: CSGShape = self.get_active_session_platform()
+    self.PLAYER_AVATAR.translation.y = active_session_platform.translation.y
+    self.PLAYER_AVATAR.translation.x = active_session_platform.get_parent_spatial().translation.x
+
+
 func handle_jump() -> void:
     self.add_note_from_current_platform_position()
+
+    self.update_player_position()
 
     self.update_beat_indicator_position() # TODO: Handle wrap-around/end of bar.
 
