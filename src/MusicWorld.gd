@@ -73,6 +73,7 @@ func _ready() -> void:
 
         active_beat = next_beat
 
+    NOTE_PLAYER.notes.clear()
 
 # warning-ignore:unused_argument
 func _on_StaticBody_input_event(camera: Node, event: InputEvent, click_position: Vector3, click_normal: Vector3, shape_idx: int) -> void:
