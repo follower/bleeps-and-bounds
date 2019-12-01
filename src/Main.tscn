@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://MusicWorld.gd" type="Script" id=2]
@@ -9,8 +9,11 @@
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.466667, 0.192157, 0.67451, 1 )
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.462745, 0.521569, 0.980392, 1 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.9, 0.1, 0.5 )
 
 [node name="Root" type="Node"]
 script = ExtResource( 1 )
@@ -83,7 +86,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75 )
 width = 1.8
 height = 0.2
 depth = 1.0
-material = SubResource( 3 )
+material = SubResource( 2 )
 
 [node name="Bar01Beat2Indicator" type="CSGBox" parent="Spatial/MusicWorld"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.75 )
@@ -97,42 +100,57 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75 )
 width = 1.8
 height = 0.2
 depth = 1.0
-material = SubResource( 3 )
+material = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Spatial/MusicWorld/Bar01Beat2Indicator/Platform1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/MusicWorld/Bar01Beat2Indicator/Platform1/StaticBody"]
+shape = SubResource( 3 )
 
 [node name="Platform2" type="CSGBox" parent="Spatial/MusicWorld/Bar01Beat2Indicator"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.75 )
 width = 1.8
 height = 0.2
 depth = 1.0
-material = SubResource( 3 )
+material = SubResource( 2 )
+
+[node name="StaticBody2" type="StaticBody" parent="Spatial/MusicWorld/Bar01Beat2Indicator/Platform2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/MusicWorld/Bar01Beat2Indicator/Platform2/StaticBody2"]
+shape = SubResource( 3 )
 
 [node name="Platform3" type="CSGBox" parent="Spatial/MusicWorld/Bar01Beat2Indicator"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0.75 )
 width = 1.8
 height = 0.2
 depth = 1.0
-material = SubResource( 3 )
+material = SubResource( 2 )
+
+[node name="StaticBody3" type="StaticBody" parent="Spatial/MusicWorld/Bar01Beat2Indicator/Platform3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/MusicWorld/Bar01Beat2Indicator/Platform3/StaticBody3"]
+shape = SubResource( 3 )
 
 [node name="Platform4" type="CSGBox" parent="Spatial/MusicWorld/Bar01Beat2Indicator"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0.75 )
 width = 1.8
 height = 0.2
 depth = 1.0
-material = SubResource( 3 )
+material = SubResource( 2 )
 
 [node name="Platform5" type="CSGBox" parent="Spatial/MusicWorld/Bar01Beat2Indicator"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0.75 )
 width = 1.8
 height = 0.2
 depth = 1.0
-material = SubResource( 3 )
+material = SubResource( 2 )
 
 [node name="Bar01Beat3Indicator" type="CSGBox" parent="Spatial/MusicWorld"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -0.75 )
 width = 1.8
 height = 18.0
 depth = 0.2
-material = ExtResource( 2 )
+material = ExtResource( 3 )
 
 [node name="Bar01Beat4Indicator" type="CSGBox" parent="Spatial/MusicWorld"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -0.75 )
@@ -153,3 +171,6 @@ file = "res://data/short.mid"
 volume_db = -10.0
 soundfont = "res://data/__Florestan_Basic_GM_GS.sf2"
 [connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
+[connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform1/StaticBody" to="Spatial/MusicWorld" method="_on_StaticBody_input_event"]
+[connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform2/StaticBody2" to="Spatial/MusicWorld" method="_on_StaticBody2_input_event"]
+[connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform3/StaticBody3" to="Spatial/MusicWorld" method="_on_StaticBody3_input_event"]

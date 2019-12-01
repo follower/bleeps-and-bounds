@@ -58,3 +58,24 @@ func _ready() -> void:
         yield(get_tree().create_timer(0.5), "timeout")
 
         active_beat = next_beat
+
+
+# warning-ignore:unused_argument
+func _on_StaticBody_input_event(camera: Node, event: InputEvent, click_position: Vector3, click_normal: Vector3, shape_idx: int) -> void:
+ #   print(event, shape_idx)
+
+    if event.is_pressed():
+        $"../..".play_note(60)
+
+
+func _on_StaticBody2_input_event(camera: Node, event: InputEvent, click_position: Vector3, click_normal: Vector3, shape_idx: int) -> void:
+
+    if event.is_pressed():
+
+        $"../..".play_note(62)
+
+
+func _on_StaticBody3_input_event(camera: Node, event: InputEvent, click_position: Vector3, click_normal: Vector3, shape_idx: int) -> void:
+    if event.is_pressed():
+
+        $"../..".play_note(64)
