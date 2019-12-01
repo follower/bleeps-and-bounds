@@ -114,6 +114,10 @@ func update_note_platform_position() -> void:
     NOTE_PLAYER.play_note(self.note_info[self.current_note_platform_position].value)
 
 
+func stop_note_platform() -> void:
+    self.NEW_NOTE_PLATFORM_TIMER.stop()
+
+
 func add_note_from_current_platform_position() -> void:
     NOTE_PLAYER.notes.append(self.note_info[self.current_note_platform_position].value)
 
@@ -126,4 +130,4 @@ func _unhandled_key_input(event: InputEventKey) -> void:
     if event.is_action_pressed("ui_accept"):
         self.add_note_from_current_platform_position()
     elif event.is_action_pressed("ui_cancel"):
-        self.NEW_NOTE_PLATFORM_TIMER.stop()
+        self.stop_note_platform()
