@@ -45,8 +45,6 @@ func _ready() -> void:
         current_beat_indicator.material = current_beat_indicator.material.duplicate()
         current_material = current_beat_indicator.material
 
-    self.NEW_NOTE_PLATFORM_TIMER.start()
-
     self._tweener.start()
 
     yield(get_tree().create_timer(1.0), "timeout")
@@ -61,6 +59,7 @@ func _begin_recording_session() -> void:
     NOTE_PLAYER.notes = [60, 60] # TODO: Remove second note.
 
 
+    self.NEW_NOTE_PLATFORM_TIMER.start()
 
 
 func _play_demo_with_beat_indicators() -> void:
@@ -89,6 +88,7 @@ func _play_demo_with_beat_indicators() -> void:
 
     NOTE_PLAYER.notes.clear()
 
+    self.NEW_NOTE_PLATFORM_TIMER.start()
 
 func play_note_sequence() -> void:
 
