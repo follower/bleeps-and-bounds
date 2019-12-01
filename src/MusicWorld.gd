@@ -170,6 +170,7 @@ func _on_PlatformTimer_timeout() -> void:
 
 
 func _unhandled_key_input(event: InputEventKey) -> void:
+    # TODO: Improve accessibility of this & buttons.
     if event.is_action_pressed("ui_accept"):
         self.handle_jump()
     elif event.is_action_pressed("ui_cancel"):
