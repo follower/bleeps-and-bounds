@@ -51,7 +51,10 @@ func _ready() -> void:
 
     yield(get_tree().create_timer(1.0), "timeout")
 
-    self._play_demo_with_beat_indicators()
+    if false:
+        self._play_demo_with_beat_indicators()
+    else:
+        NOTE_PLAYER.notes = [60]
 
 
 func _play_demo_with_beat_indicators() -> void:
