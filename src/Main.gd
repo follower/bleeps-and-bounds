@@ -52,6 +52,8 @@ func _on_SeqPlayButton_pressed() -> void:
     # Automatically stop the note platform before starting playback.
     MUSIC_WORLD.stop_note_platform()
 
+    # TODO: Mute or wait to allow playing note to stop.
+
     MUSIC_WORLD.play_note_sequence()
 
 
