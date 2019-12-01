@@ -117,6 +117,7 @@ func update_note_platform_position() -> void:
 func add_note_from_current_platform_position() -> void:
     NOTE_PLAYER.notes.append(self.note_info[self.current_note_platform_position].value)
 
+
 func _on_PlatformTimer_timeout() -> void:
     self.update_note_platform_position()
 
