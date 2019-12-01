@@ -59,10 +59,22 @@ var session_active_beat_index: int = 2 # Note: Beats are numbered 0-3 here
 func _begin_recording_session() -> void:
     NOTE_PLAYER.notes = [60, 60] # TODO: Remove second note.
 
+    var active_beat_platform: CSGShape = self.beat_indicators[self.session_active_beat_index].find_node("Platform1")
+
+    active_beat_platform.visible = false # TODO: Make all platforms invisible at startup?
+
+    yield(get_tree().create_timer(0.5), "timeout")
 
     self._tweener.interpolate_property(self.beat_indicators[self.session_active_beat_index].material, "emission_energy", 0.0, 0.25, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
 
     self._tweener.start()
+
+    yield(get_tree().create_timer(0.5), "timeout")
+
+    # TODO: Handle this initialization better.
+    self.current_note_platform_position = 1
+    self.update_note_platform_position()
+    active_beat_platform.visible = true
 
     self.NEW_NOTE_PLATFORM_TIMER.start()
 
