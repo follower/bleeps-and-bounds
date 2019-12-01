@@ -55,9 +55,15 @@ func _ready() -> void:
         self._begin_recording_session()
 
 
+var session_active_beat_index: int = 2 # Note: Beats are numbered 0-3 here
+
 func _begin_recording_session() -> void:
     NOTE_PLAYER.notes = [60, 60] # TODO: Remove second note.
 
+
+    self._tweener.interpolate_property(self.beat_indicators[self.session_active_beat_index].material, "emission_energy", 0.0, 0.25, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
+
+    self._tweener.start()
 
     self.NEW_NOTE_PLATFORM_TIMER.start()
 
