@@ -51,6 +51,11 @@ func _ready() -> void:
 
     yield(get_tree().create_timer(1.0), "timeout")
 
+    self._play_demo_with_beat_indicators()
+
+
+func _play_demo_with_beat_indicators() -> void:
+
     var NUM_BEATS = self.beat_indicators.size()
 
     # Ensures the first visible beat indicator transition is from the last beat to the first beat.
