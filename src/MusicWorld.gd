@@ -47,7 +47,6 @@ func _ready() -> void:
 
     self._tweener.start()
 
-    yield(get_tree().create_timer(1.0), "timeout")
 
     if false:
         self._play_demo_with_beat_indicators()
@@ -69,6 +68,8 @@ func _begin_recording_session() -> void:
 
 
 func _play_demo_with_beat_indicators() -> void:
+
+    yield(get_tree().create_timer(1.0), "timeout") # Note: This is a hack so the `_on_Button_pressed()` call works.
 
     var NUM_BEATS = self.beat_indicators.size()
 
