@@ -31,3 +31,15 @@ func _on_Button_pressed() -> void:
     ##MIDI_PLAYER._stop_all_notes() ## TODO: Handle this properly
 
     MIDI_PLAYER._process_track_event_note_on(channel, event)
+
+
+func play_note(note_value: int) -> void:
+    var channel = MIDI_PLAYER.channel_status[4]
+
+    var event = {
+                    "type": MIDI_PLAYER.SMF.MIDIEventType.note_on,
+                    "note": note_value,
+                    "velocity": 100,
+                } # via SMF.gd
+
+    MIDI_PLAYER._process_track_event_note_on(channel, event)
