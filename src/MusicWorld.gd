@@ -54,7 +54,11 @@ func _ready() -> void:
     if false:
         self._play_demo_with_beat_indicators()
     else:
-        NOTE_PLAYER.notes = [60]
+        self._begin_recording_session()
+
+
+func _begin_recording_session() -> void:
+    NOTE_PLAYER.notes = [60]
 
 
 func _play_demo_with_beat_indicators() -> void:
