@@ -12,6 +12,9 @@ onready var beat_indicators = [
                 BAR01_BEAT3_INDICATOR,
                 BAR01_BEAT4_INDICATOR]
 
+onready var NUM_BEATS: int = self.beat_indicators.size() # Note: Actually number of beat *indicators*.
+
+
 var _tweener: Tween = Tween.new()
 
 onready var NEW_NOTE_PLATFORM = $"Bar01Beat3Indicator/Platform1"
@@ -84,8 +87,6 @@ func _begin_recording_session() -> void:
 func _play_demo_with_beat_indicators() -> void:
 
     yield(get_tree().create_timer(1.0), "timeout") # Note: This is a hack so the `_on_Button_pressed()` call works.
-
-    var NUM_BEATS = self.beat_indicators.size()
 
     # Ensures the first visible beat indicator transition is from the last beat to the first beat.
     var active_beat: int = self.beat_indicators.size() - 1
