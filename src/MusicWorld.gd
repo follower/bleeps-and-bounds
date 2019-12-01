@@ -45,6 +45,13 @@ func _ready() -> void:
         current_beat_indicator.material = current_beat_indicator.material.duplicate()
         current_material = current_beat_indicator.material
 
+
+    for current_beat_indicator in self.beat_indicators:
+        current_beat_indicator.find_node("Platform1").visible = false
+
+    self.beat_indicators[0].find_node("Platform1").visible = true # TODO: Do this properly.
+
+
     self._tweener.start()
 
 
@@ -60,8 +67,6 @@ func _begin_recording_session() -> void:
     NOTE_PLAYER.notes = [60, 60] # TODO: Remove second note.
 
     var active_beat_platform: CSGShape = self.beat_indicators[self.session_active_beat_index].find_node("Platform1")
-
-    active_beat_platform.visible = false # TODO: Make all platforms invisible at startup?
 
     yield(get_tree().create_timer(0.5), "timeout") # This helps first indicator appearance to be seen.
 
