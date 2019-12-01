@@ -181,7 +181,8 @@ func add_note_from_current_platform_position() -> void:
 
 func handle_jump() -> void:
     self.add_note_from_current_platform_position()
-    self.update_beat_indicator_position()
+
+    self.update_beat_indicator_position() # TODO: Handle wrap-around/end of bar.
 
 
 func _on_PlatformTimer_timeout() -> void:
