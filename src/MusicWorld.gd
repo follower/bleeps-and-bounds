@@ -78,6 +78,8 @@ func _ready() -> void:
 
 func play_note_sequence() -> void:
 
+    # TODO: Actually use MIDI player for this?
+
     for current_note in NOTE_PLAYER.notes:
         NOTE_PLAYER.play_note(current_note)
         yield(get_tree().create_timer(0.5), "timeout")
