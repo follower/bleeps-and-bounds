@@ -23,23 +23,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Button" type="Button" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 12.0
-margin_bottom = 20.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 100, 50 )
 focus_mode = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 enabled_focus_mode = 0
 text = "test MIDI"
 
-[node name="Label" type="Label" parent="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 12.0
-margin_top = 450.0
-margin_right = -960.0
-margin_bottom = -12.0
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+margin_top = 481.0
+margin_right = 314.0
+margin_bottom = 580.0
+size_flags_horizontal = 0
+size_flags_vertical = 10
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Credits:
 
@@ -47,7 +54,7 @@ A RancidBacon.com Production.
 
 Uses \"Godot MIDI Player\" by @arlez80
 and \"Florestan Basic GM GS\" by Nando Florestan."
-valign = 1
+valign = 2
 
 [node name="Spatial" type="Spatial" parent="."]
 
@@ -183,7 +190,7 @@ __meta__ = {
 file = "res://data/short.mid"
 volume_db = -10.0
 soundfont = "res://data/__Florestan_Basic_GM_GS.sf2"
-[connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform1/StaticBody" to="Spatial/MusicWorld" method="_on_StaticBody_input_event"]
 [connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform2/StaticBody2" to="Spatial/MusicWorld" method="_on_StaticBody2_input_event"]
 [connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform3/StaticBody3" to="Spatial/MusicWorld" method="_on_StaticBody3_input_event"]
