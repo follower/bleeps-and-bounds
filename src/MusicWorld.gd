@@ -17,7 +17,6 @@ onready var NUM_BEATS: int = self.beat_indicators.size() # Note: Actually number
 
 var _tweener: Tween = Tween.new()
 
-onready var NEW_NOTE_PLATFORM = $"Bar01Beat3Indicator/Platform1"
 onready var NEW_NOTE_PLATFORM_TIMER: Timer = $"PlatformTimer"
 
 onready var NOTE_PLAYER = $"../.."
@@ -166,7 +165,7 @@ func _on_StaticBody3_input_event(camera: Node, event: InputEvent, click_position
 var current_note_platform_position = 2
 func update_note_platform_position() -> void:
     self.current_note_platform_position = (self.current_note_platform_position + 1) % self.note_info.size()
-    self.NEW_NOTE_PLATFORM.translation.y = self.note_info[self.current_note_platform_position].offset * 2
+    self.get_active_session_platform().translation.y = self.note_info[self.current_note_platform_position].offset * 2
 
     NOTE_PLAYER.play_note(self.note_info[self.current_note_platform_position].value)
 
@@ -183,6 +182,10 @@ func handle_jump() -> void:
     self.add_note_from_current_platform_position()
 
     self.update_beat_indicator_position() # TODO: Handle wrap-around/end of bar.
+
+    # TODO: Make this atomic?
+    self.update_note_platform_position()
+    self.get_active_session_platform().visible = true
 
 
 func _on_PlatformTimer_timeout() -> void:
