@@ -2,6 +2,8 @@ extends Node
 
 onready var MIDI_PLAYER = $"Sound/GodotMIDIPlayer"
 
+onready var MUSIC_WORLD = $"Spatial/MusicWorld"
+
 var current_note_index = 0
 
 func _ready():
@@ -43,3 +45,8 @@ func play_note(note_value: int) -> void:
                 } # via SMF.gd
 
     MIDI_PLAYER._process_track_event_note_on(channel, event)
+
+
+func _on_SeqPlayButton_pressed() -> void:
+
+    MUSIC_WORLD.play_note_sequence()

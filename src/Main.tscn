@@ -202,6 +202,7 @@ file = "res://data/short.mid"
 volume_db = -10.0
 soundfont = "res://data/__Florestan_Basic_GM_GS.sf2"
 [connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/SeqPlayButton" to="." method="_on_SeqPlayButton_pressed"]
 [connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform1/StaticBody" to="Spatial/MusicWorld" method="_on_StaticBody_input_event"]
 [connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform2/StaticBody2" to="Spatial/MusicWorld" method="_on_StaticBody2_input_event"]
 [connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform3/StaticBody3" to="Spatial/MusicWorld" method="_on_StaticBody3_input_event"]
