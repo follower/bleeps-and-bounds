@@ -122,6 +122,22 @@ func play_note_sequence() -> void:
         yield(get_tree().create_timer(0.5), "timeout")
 
 
+func update_beat_indicator_position() -> void:
+
+    var next_beat_index: int = (self.session_active_beat_index + 1) % self.NUM_BEATS
+
+    self._tweener.remove_all()
+
+    # TODO: Make sure "active" index is valid? e.g. at session start.
+    self._tweener.interpolate_property(self.beat_indicators[self.session_active_beat_index].material, "emission_energy", 0.25, 0.0, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
+
+    self._tweener.interpolate_property(self.beat_indicators[next_beat_index].material, "emission_energy", 0.0, 0.25, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
+
+    self._tweener.start()
+
+    self.session_active_beat_index = next_beat_index
+
+
 # warning-ignore:unused_argument
 func _on_StaticBody_input_event(camera: Node, event: InputEvent, click_position: Vector3, click_normal: Vector3, shape_idx: int) -> void:
  #   print(event, shape_idx)
@@ -161,6 +177,7 @@ func add_note_from_current_platform_position() -> void:
 
 func handle_jump() -> void:
     self.add_note_from_current_platform_position()
+    self.update_beat_indicator_position()
 
 
 func _on_PlatformTimer_timeout() -> void:
