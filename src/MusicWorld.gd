@@ -58,7 +58,9 @@ func _ready() -> void:
 
 
 func _begin_recording_session() -> void:
-    NOTE_PLAYER.notes = [60]
+    NOTE_PLAYER.notes = [60, 60] # TODO: Remove second note.
+
+
 
 
 func _play_demo_with_beat_indicators() -> void:
