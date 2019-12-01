@@ -107,7 +107,8 @@ func _play_demo_with_beat_indicators() -> void:
 
     NOTE_PLAYER.notes.clear()
 
-    self.NEW_NOTE_PLATFORM_TIMER.start()
+    self.NEW_NOTE_PLATFORM_TIMER.start() # TODO: Do this in a way that means everything is initialised right.
+
 
 func play_note_sequence() -> void:
 
