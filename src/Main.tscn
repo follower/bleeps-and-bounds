@@ -41,10 +41,21 @@ size_flags_vertical = 0
 enabled_focus_mode = 0
 text = "test MIDI"
 
-[node name="SeqPlayButton" type="Button" parent="Control/VBoxContainer"]
+[node name="JumpButton" type="Button" parent="Control/VBoxContainer"]
 margin_top = 54.0
 margin_right = 110.0
-margin_bottom = 104.0
+margin_bottom = 288.0
+rect_min_size = Vector2( 110, 50 )
+focus_mode = 0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+enabled_focus_mode = 0
+text = "Jump!"
+
+[node name="SeqPlayButton" type="Button" parent="Control/VBoxContainer"]
+margin_top = 292.0
+margin_right = 110.0
+margin_bottom = 342.0
 rect_min_size = Vector2( 110, 50 )
 focus_mode = 0
 size_flags_horizontal = 0
@@ -202,6 +213,7 @@ file = "res://data/short.mid"
 volume_db = -10.0
 soundfont = "res://data/__Florestan_Basic_GM_GS.sf2"
 [connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/JumpButton" to="." method="_on_JumpButton_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/SeqPlayButton" to="." method="_on_SeqPlayButton_pressed"]
 [connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform1/StaticBody" to="Spatial/MusicWorld" method="_on_StaticBody_input_event"]
 [connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform2/StaticBody2" to="Spatial/MusicWorld" method="_on_StaticBody2_input_event"]

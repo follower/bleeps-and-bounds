@@ -53,3 +53,9 @@ func _on_SeqPlayButton_pressed() -> void:
     MUSIC_WORLD.stop_note_platform()
 
     MUSIC_WORLD.play_note_sequence()
+
+
+func _on_JumpButton_pressed() -> void:
+    # This button is primarily for mobile.
+    # TODO: Handle this better? e.g. a screen tap.
+    MUSIC_WORLD.add_note_from_current_platform_position()
