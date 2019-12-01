@@ -114,3 +114,5 @@ func _on_PlatformTimer_timeout() -> void:
 func _unhandled_key_input(event: InputEventKey) -> void:
     if event.is_action_pressed("ui_accept"):
         self.add_note_from_current_platform_position()
+    elif event.is_action_pressed("ui_cancel"):
+        self.NEW_NOTE_PLATFORM_TIMER.stop()
