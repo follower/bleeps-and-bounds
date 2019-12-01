@@ -49,4 +49,7 @@ func play_note(note_value: int) -> void:
 
 func _on_SeqPlayButton_pressed() -> void:
 
+    # Automatically stop the note platform before starting playback.
+    MUSIC_WORLD.stop_note_platform()
+
     MUSIC_WORLD.play_note_sequence()
