@@ -62,10 +62,10 @@ func _ready() -> void:
         self._begin_recording_session()
 
 
-var session_active_beat_index: int = 2 # Note: Beats are numbered 0-3 here
+var session_active_beat_index: int = 1 # Note: Beats are numbered 0-3 here
 
 func _begin_recording_session() -> void:
-    NOTE_PLAYER.notes = [60, 60] # TODO: Remove second note.
+    NOTE_PLAYER.notes = [60]
 
     var active_beat_platform: CSGShape = self.get_active_session_platform()
 
