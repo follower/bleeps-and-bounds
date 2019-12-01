@@ -32,8 +32,6 @@ func _ready() -> void:
         current_beat_indicator.material = current_beat_indicator.material.duplicate()
         current_material = current_beat_indicator.material
 
-    self._tweener.interpolate_property(self.beat_indicators[0].material, "emission_energy", 0.0, 0.25, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.5)
-
 
     self._tweener.start()
 
@@ -41,9 +39,10 @@ func _ready() -> void:
 
     var NUM_BEATS = self.beat_indicators.size()
 
-    var active_beat: int = 0
+    # Ensures the first visible beat indicator transition is from the last beat to the first beat.
+    var active_beat: int = self.beat_indicators.size() - 1
 
-    for counter in range(15):
+    for counter in range(16):
         var next_beat: int = (active_beat + 1) % NUM_BEATS
 
         self._tweener.remove_all()
