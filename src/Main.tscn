@@ -15,6 +15,22 @@ albedo_color = Color( 0.462745, 0.521569, 0.980392, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="Label" type="Label" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 450.0
+margin_right = -960.0
+margin_bottom = -12.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credits:
+
+A RancidBacon.com Production.
+
+Uses \"Godot MIDI Player\" by @arlez80
+and \"Florestan Basic GM GS\" by Nando Florestan."
+valign = 1
+
 [node name="Spatial" type="Spatial" parent="."]
 
 [node name="Camera" type="Camera" parent="Spatial"]
