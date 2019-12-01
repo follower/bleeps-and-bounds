@@ -20,6 +20,8 @@ var _tweener: Tween = Tween.new()
 onready var NEW_NOTE_PLATFORM = $"Bar01Beat3Indicator/Platform1"
 onready var NEW_NOTE_PLATFORM_TIMER: Timer = $"PlatformTimer"
 
+onready var NOTE_PLAYER = $"../.."
+
 var note_info = [
     {"value": 57, "name": "A", "offset": -2},
     {"value": 59, "name": "B", "offset": -1},
@@ -92,8 +94,6 @@ func _on_StaticBody3_input_event(camera: Node, event: InputEvent, click_position
 
         $"../..".play_note(64)
 
-
-onready var NOTE_PLAYER = $"../.."
 
 var current_note_platform_position = 2
 func update_note_platform_position() -> void:
