@@ -200,6 +200,13 @@ height = 18.0
 depth = 0.2
 material = ExtResource( 3 )
 
+[node name="Platform1" type="CSGBox" parent="Spatial/MusicWorld/Bar01Beat4Indicator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75 )
+width = 1.8
+height = 0.2
+depth = 1.0
+material = SubResource( 2 )
+
 [node name="PlatformTimer" type="Timer" parent="Spatial/MusicWorld"]
 process_mode = 0
 wait_time = 0.5
