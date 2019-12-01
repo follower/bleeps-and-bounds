@@ -17,6 +17,17 @@ onready var beat_indicators = [
 
 var _tweener: Tween = Tween.new()
 
+onready var NEW_NOTE_PLATFORM = $"Bar01Beat3Indicator/Platform1"
+onready var NEW_NOTE_PLATFORM_TIMER: Timer = $"PlatformTimer"
+
+var note_info = [
+    {"value": 57, "name": "A", "offset": -2},
+    {"value": 59, "name": "B", "offset": -1},
+    {"value": 60, "name": "C", "offset": 0},
+    {"value": 62, "name": "D", "offset": 1},
+    {"value": 64, "name": "E", "offset": 2},
+    ]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
@@ -32,6 +43,7 @@ func _ready() -> void:
         current_beat_indicator.material = current_beat_indicator.material.duplicate()
         current_material = current_beat_indicator.material
 
+    self.NEW_NOTE_PLATFORM_TIMER.start()
 
     self._tweener.start()
 
@@ -79,3 +91,13 @@ func _on_StaticBody3_input_event(camera: Node, event: InputEvent, click_position
     if event.is_pressed():
 
         $"../..".play_note(64)
+
+
+var current_note_platform_position = 2
+func update_note_platform_position() -> void:
+    self.current_note_platform_position = (self.current_note_platform_position + 1) % self.note_info.size()
+    self.NEW_NOTE_PLATFORM.translation.y = self.note_info[self.current_note_platform_position].offset * 2
+
+
+func _on_PlatformTimer_timeout() -> void:
+    self.update_note_platform_position()

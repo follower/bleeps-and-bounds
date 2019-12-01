@@ -152,12 +152,23 @@ height = 18.0
 depth = 0.2
 material = ExtResource( 3 )
 
+[node name="Platform1" type="CSGBox" parent="Spatial/MusicWorld/Bar01Beat3Indicator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75 )
+width = 1.8
+height = 0.2
+depth = 1.0
+material = SubResource( 2 )
+
 [node name="Bar01Beat4Indicator" type="CSGBox" parent="Spatial/MusicWorld"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -0.75 )
 width = 1.8
 height = 18.0
 depth = 0.2
 material = ExtResource( 3 )
+
+[node name="PlatformTimer" type="Timer" parent="Spatial/MusicWorld"]
+process_mode = 0
+wait_time = 0.5
 
 [node name="Sound" type="Node" parent="."]
 
@@ -174,3 +185,4 @@ soundfont = "res://data/__Florestan_Basic_GM_GS.sf2"
 [connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform1/StaticBody" to="Spatial/MusicWorld" method="_on_StaticBody_input_event"]
 [connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform2/StaticBody2" to="Spatial/MusicWorld" method="_on_StaticBody2_input_event"]
 [connection signal="input_event" from="Spatial/MusicWorld/Bar01Beat2Indicator/Platform3/StaticBody3" to="Spatial/MusicWorld" method="_on_StaticBody3_input_event"]
+[connection signal="timeout" from="Spatial/MusicWorld/PlatformTimer" to="Spatial/MusicWorld" method="_on_PlatformTimer_timeout"]
