@@ -8,6 +8,8 @@
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.466667, 0.192157, 0.67451, 1 )
+metallic = 0.38
+roughness = 0.33
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.462745, 0.521569, 0.980392, 1 )
