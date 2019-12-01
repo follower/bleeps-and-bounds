@@ -14,11 +14,11 @@ func _ready():
     print(MIDI_PLAYER.channel_status.size())
 
 
+var notes = [60, 62, 60, 64, 60, 64, 60, 67]
+
 func _on_Button_pressed() -> void:
 
     var channel = MIDI_PLAYER.channel_status[4]
-
-    var notes = [60, 62, 60, 64, 60, 64, 60, 67]
 
     var event = {
                     "type": MIDI_PLAYER.SMF.MIDIEventType.note_on,
