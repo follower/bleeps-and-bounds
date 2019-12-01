@@ -1,8 +1,5 @@
 extends Spatial
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
 
 onready var BAR01_BEAT1_INDICATOR = $"Bar01Beat1Indicator"
 onready var BAR01_BEAT2_INDICATOR = $"Bar01Beat2Indicator"
