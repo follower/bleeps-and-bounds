@@ -137,12 +137,14 @@ depth = 1.0
 material = SubResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="Spatial/MusicWorld/Bar01Beat2Indicator/Platform1"]
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Spatial/MusicWorld/Bar01Beat2Indicator/Platform1/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="Platform2" type="CSGBox" parent="Spatial/MusicWorld/Bar01Beat2Indicator"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.75 )
+visible = false
 width = 1.8
 height = 0.2
 depth = 1.0
@@ -155,6 +157,7 @@ shape = SubResource( 3 )
 
 [node name="Platform3" type="CSGBox" parent="Spatial/MusicWorld/Bar01Beat2Indicator"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0.75 )
+visible = false
 width = 1.8
 height = 0.2
 depth = 1.0
@@ -167,6 +170,7 @@ shape = SubResource( 3 )
 
 [node name="Platform4" type="CSGBox" parent="Spatial/MusicWorld/Bar01Beat2Indicator"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0.75 )
+visible = false
 width = 1.8
 height = 0.2
 depth = 1.0
@@ -174,6 +178,7 @@ material = SubResource( 2 )
 
 [node name="Platform5" type="CSGBox" parent="Spatial/MusicWorld/Bar01Beat2Indicator"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0.75 )
+visible = false
 width = 1.8
 height = 0.2
 depth = 1.0
