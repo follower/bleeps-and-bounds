@@ -66,7 +66,7 @@ var session_active_beat_index: int = 2 # Note: Beats are numbered 0-3 here
 func _begin_recording_session() -> void:
     NOTE_PLAYER.notes = [60, 60] # TODO: Remove second note.
 
-    var active_beat_platform: CSGShape = self.beat_indicators[self.session_active_beat_index].find_node("Platform1")
+    var active_beat_platform: CSGShape = self.get_active_session_platform()
 
     yield(get_tree().create_timer(0.5), "timeout") # This helps first indicator appearance to be seen.
 
@@ -82,6 +82,10 @@ func _begin_recording_session() -> void:
     active_beat_platform.visible = true
 
     self.NEW_NOTE_PLATFORM_TIMER.start()
+
+
+func get_active_session_platform() -> CSGShape:
+    return self.beat_indicators[self.session_active_beat_index].find_node("Platform1")
 
 
 func _play_demo_with_beat_indicators() -> void:
