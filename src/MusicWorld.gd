@@ -63,7 +63,7 @@ func _begin_recording_session() -> void:
 
     active_beat_platform.visible = false # TODO: Make all platforms invisible at startup?
 
-    yield(get_tree().create_timer(0.5), "timeout")
+    yield(get_tree().create_timer(0.5), "timeout") # This helps first indicator appearance to be seen.
 
     self._tweener.interpolate_property(self.beat_indicators[self.session_active_beat_index].material, "emission_energy", 0.0, 0.25, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, 0.0)
 
