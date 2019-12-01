@@ -30,6 +30,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
+custom_constants/separation = 50
 
 [node name="Button" type="Button" parent="Control/VBoxContainer"]
 margin_right = 110.0
@@ -42,9 +43,9 @@ enabled_focus_mode = 0
 text = "test MIDI"
 
 [node name="JumpButton" type="Button" parent="Control/VBoxContainer"]
-margin_top = 54.0
+margin_top = 100.0
 margin_right = 110.0
-margin_bottom = 288.0
+margin_bottom = 265.0
 rect_min_size = Vector2( 110, 50 )
 focus_mode = 0
 size_flags_horizontal = 0
@@ -53,9 +54,9 @@ enabled_focus_mode = 0
 text = "Jump!"
 
 [node name="SeqPlayButton" type="Button" parent="Control/VBoxContainer"]
-margin_top = 292.0
+margin_top = 315.0
 margin_right = 110.0
-margin_bottom = 342.0
+margin_bottom = 365.0
 rect_min_size = Vector2( 110, 50 )
 focus_mode = 0
 size_flags_horizontal = 0
