@@ -93,10 +93,14 @@ func _on_StaticBody3_input_event(camera: Node, event: InputEvent, click_position
         $"../..".play_note(64)
 
 
+onready var NOTE_PLAYER = $"../.."
+
 var current_note_platform_position = 2
 func update_note_platform_position() -> void:
     self.current_note_platform_position = (self.current_note_platform_position + 1) % self.note_info.size()
     self.NEW_NOTE_PLATFORM.translation.y = self.note_info[self.current_note_platform_position].offset * 2
+
+    NOTE_PLAYER.play_note(self.note_info[self.current_note_platform_position].value)
 
 
 func _on_PlatformTimer_timeout() -> void:
